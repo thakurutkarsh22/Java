@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;HackerEarth/src/HackersWithBits.java&apos; to &apos;FLOW018.java&apos;" description="Rename resource &apos;HackersWithBits.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/HackersWithBits.java" name="FLOW018.java" stamp="1498079345518" updateReferences="true"/>
+</session>

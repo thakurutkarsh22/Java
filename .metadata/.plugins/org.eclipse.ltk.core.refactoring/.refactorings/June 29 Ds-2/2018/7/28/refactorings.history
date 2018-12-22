@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;June 29 Ds-2/src/DynamicProgramingFraands/ongestCommonSubsequence.java&apos; to &apos;LongestCommonSubsequence.java&apos;" description="Rename resource &apos;ongestCommonSubsequence.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/DynamicProgramingFraands/ongestCommonSubsequence.java" name="LongestCommonSubsequence.java" stamp="1531055827060" updateReferences="true"/>
+</session>

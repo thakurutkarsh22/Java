@@ -1,0 +1,99 @@
+import java.util.Arrays;
+
+public class StringOps {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+//		String s1 = "Hello";
+//		String s2 = "Hell";
+//		System.out.println(s1 == s2);
+//		printChars("abcdefgh");
+//		substr("abcdefg");
+//		boolean n = ispali("bhais");
+//		System.out.println(n);
+		
+		boolean b = isanagram("acdb", "acfb");
+		System.out.println(b);
+	}
+
+	public static void printChars(String s) {
+		int i;
+		for (i = 0; i < s.length(); i++) {
+			System.out.println(s.charAt(i));
+
+		}
+
+	}
+
+	public static void substr(String s) // SUBSTRINGS
+	{
+		int i;
+
+		for (int counter = 0; counter < s.length(); counter++) {
+			for (i = counter; i < s.length() - 1; i++) {
+				System.out.println(s.substring(counter, i + 1));
+			}
+
+		}
+
+	}
+
+	public static boolean ispali(String s) // IS PALINTROME
+	{
+		boolean rv = false;
+		int i;
+		for (i = 0; i < s.length() / 2; i++) {
+			if (s.charAt(i) == s.charAt(s.length() - i - 1)) {
+				return true;
+			}
+
+		}
+
+		return rv;
+
+	}
+
+	public static int countpalli(String s) {
+		int rv = 0;
+
+		for (int si = 0; si < s.length(); si++) {
+			for (int ei = si + 1; ei <= s.length(); ei++) {
+				String sub = s.substring(si, ei);
+				if (ispali(sub)) {
+					rv++;
+				}
+			}
+		}
+
+		return rv;
+	}
+
+	public static boolean isanagram(String s1, String s2) {
+		int[] a1 = new int[26];
+		int[] b1 = new int[26];
+
+		char[] a = s1.toCharArray();
+		char[] b = s2.toCharArray();
+		for(int i = 0 ; i<a.length ;i++) {
+			a1[i] = a[i] ; 
+		}
+		for(int i = 0 ; i<a.length ;i++) {
+			b1[i] = b[i] ; 
+		}
+		Arrays.sort(a1);
+		Arrays.sort(b1);
+		for (int i = 0; i < a.length; i++) {
+			System.out.print(a1[i]);
+		}
+		System.out.println();
+		for (int i = 0; i < b.length; i++) {
+			System.out.print(b1[i]);
+		}
+		System.out.println();
+		
+		return false;
+
+	}
+
+}

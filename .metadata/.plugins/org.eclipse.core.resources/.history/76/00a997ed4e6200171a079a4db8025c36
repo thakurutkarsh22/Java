@@ -1,0 +1,23 @@
+package July5;
+
+public class Client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+// 50 true 25 true 12 false false true 37 false false true 75 true 62 false false true 87 false false
+		// 50 true 20 true 30 true 40 false false false false false 
+		//bst 50 true 25 true 12 false false true 37 false false true 75 true 60 false false true 87 false false 
+		BinaryTree bt = new BinaryTree();
+		bt.display();
+		System.out.println();
+//		System.out.println(bt.max());
+//		System.out.println(bt.min());
+//		System.out.println(bt.find(25));
+		System.out.println(bt.height());
+		System.out.println(bt.diameter()+ " Diameter");
+		System.out.println(bt.diameter2() + " Diameter 2");
+		System.out.println(bt.Isbalanced());
+		System.out.println(bt.IsBst());
+	}
+
+}

@@ -1,0 +1,161 @@
+package july11;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+
+import july11.GenericClient.Car;
+
+public class GenericHeap<T extends Comparable<T>> {
+
+	private ArrayList<T> data = new ArrayList<>();
+	Comparator<T>  specificcomparator; 
+	
+	
+	
+	public GenericHeap (Comparator<T> specificcomparator) {
+		this.specificcomparator = specificcomparator; 
+	}
+	
+	public int size() {
+		return this.data.size() ;
+	}
+	public boolean isEmpty() {
+		return this.size()==0;
+	}
+	public void display() {
+		System.out.println(data);
+	}
+	public T get() {
+		return data.get(0);
+	}
+	public void add (T item) {
+		
+		this.data.add(item);
+		upheapify(this.size()-1);
+		
+	}
+	
+	private void upheapify(int ci) {
+		int pi = (ci-1)/2 ;
+		
+		if (isLarger(ci, pi)) {
+			swap(pi, ci);
+			upheapify(pi);
+		}
+		
+	}
+	
+	private void swap (int i , int j) {
+		
+		T ith = data.get(i);
+		T jth = data.get(j);
+		
+		data.set(i, jth);
+		data.set(j, ith);
+	}
+	
+	public T remove() {
+		swap(0 , data.size()-1);
+		
+		T rv= data.remove(data.size()-1);
+		
+		downheapify(0);
+		
+		return rv ;
+		
+	}
+	
+	
+	private void downheapify(int pi) {
+		
+		int lci = 2*pi +1;
+		int rci = 2*pi +2;
+		
+		int maxi = pi ;
+		
+		if (lci < data.size()&& isLarger(lci, maxi)) {
+			maxi = lci ;
+		}
+		if (rci < data.size()&& isLarger(rci, maxi)) {
+			maxi = rci ;
+		}
+		
+		if(maxi != pi) {
+			swap(maxi, pi);
+			downheapify(maxi);
+		}
+		
+		
+		
+	}
+
+	private boolean isLarger (int i , int j ) {
+		
+		T ith = data.get(i);
+		T jth = data.get(j);
+		
+		if(specificcomparator == null) {
+			return ith.compareTo(jth) > 0 ;
+		}else {
+			return specificcomparator.compare(ith, jth) > 0;
+		}
+	}
+
+	private static class Car implements Comparable<Car> {
+		
+		 int speed;
+		 int price;
+		 String name;
+
+		Car(int speed, int price, String name) {
+
+			this.price = price;
+			this.name = name;
+			this.speed = speed;
+
+		}
+		
+
+		@Override
+		public int compareTo(Car o) {
+			// TODO Auto-generated method stub
+			return this.speed - o.speed;
+		}
+
+		@Override
+		public String toString() {
+			return "[S=" + this.speed + ",P =" + this.price + " ,N =" + this.name + "]";
+		}
+		
+		public static class CarSpeedComparator implements Comparator<Car>{
+
+			@Override
+			public int compare(Car o, Car t) {
+				// TODO Auto-generated method stub
+				return o.speed - t.speed;
+			}
+			
+		}
+
+		public static class CarPriceComparator implements Comparator<Car>{
+
+			@Override
+			public int compare(Car o1, Car o2) {
+				// TODO Auto-generated method stub
+				return o2.price - o1.price;
+			}
+			
+		}
+
+		public static class CarNameComparator implements Comparator<Car>{
+
+			@Override
+			public int compare(Car o1, Car o2) {
+				// TODO Auto-generated method stub
+				return o1.name.compareTo(o2.name);
+			}
+			
+		}
+		
+	
+}

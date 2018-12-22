@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;June-15 Recursion-3/src/PrintBoardPass.java&apos; to &apos;PrintMazePass.java&apos;" description="Rename resource &apos;PrintBoardPass.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/PrintBoardPass.java" name="PrintMazePass.java" stamp="1497531336507" updateReferences="true"/>
+</session>

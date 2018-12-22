@@ -1,0 +1,41 @@
+package July3;
+
+public class Client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		//10  3 20 2 50 0 60 0 30 0 40 2 70 0 80 1 90 0 && rb.justlarge > node.data
+		//10 3 
+		GenericTree gt = new GenericTree();
+		gt.display();
+		
+		System.out.println(gt.size());
+		System.out.println(gt.find(300));
+		System.out.println(gt.max());
+//		gt.linearize();
+//		gt.display();
+//		System.out.println(gt.height());
+//		gt.mirror();
+//		gt.display();
+//		gt.linearizeEff();
+//		gt.display();
+//		System.out.println(gt.isEmpty());
+		
+//		gt.preOrder();
+//		System.out.println();
+//		gt.postOrder();
+//		System.out.println();
+//		gt.levelOrder();
+//		gt.levelOrderOnNextLine();
+//		gt.Zigzac();
+		gt.PreOrderPair();
+	//	gt.PostOrderPair();
+		System.out.println("****************");
+		gt.multiSolver(30);
+		gt.KthSmallest(3);
+//		gt.removeLeaves();
+//		gt.display();
+	}
+
+}

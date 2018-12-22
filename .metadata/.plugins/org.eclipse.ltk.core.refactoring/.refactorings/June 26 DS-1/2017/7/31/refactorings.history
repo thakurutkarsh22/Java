@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;June 26 DS-1/src/ExtraClassesForDs/Generics/Heap.java&apos; to &apos;GenericHeap.java&apos;" description="Rename resource &apos;Heap.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/ExtraClassesForDs/Generics/Heap.java" name="GenericHeap.java" stamp="1501498989278" updateReferences="true"/>
+</session>

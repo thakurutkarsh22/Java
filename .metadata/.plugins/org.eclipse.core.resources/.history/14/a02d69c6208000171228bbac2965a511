@@ -1,0 +1,24 @@
+package ExtraClassesForDs.Generics;
+
+public class clientGenericHeap {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Car[] cars = new Car[5];
+		cars[3] = new Car(2000, 20000, "A");
+		cars[2] = new Car(300, 45000, "B");
+		cars[1] = new Car(4000, 30000, "C");
+		cars[4] = new Car(7000, 25000, "D");
+		cars[0] = new Car(500, 50000, "E");
+		
+		Heap<Car> heap = new Heap<>(new Car.CarSpeedComparator());
+		heap.add(cars[0]);
+		heap.add(cars[1]);
+		heap.add(cars[2]);
+		heap.add(cars[3]);
+		heap.add(cars[4]);
+		
+		heap.display();
+
+}

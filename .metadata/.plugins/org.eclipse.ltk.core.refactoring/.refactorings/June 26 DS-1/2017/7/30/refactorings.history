@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;June 26 DS-1/src/July3/GenericTree.java&apos; to &apos;GenericTreesExtra.java&apos;" description="Rename resource &apos;GenericTree.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/July3/GenericTree.java" name="GenericTreesExtra.java" stamp="1500894834095" updateReferences="true"/>
+</session>

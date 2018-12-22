@@ -1,0 +1,226 @@
+package ExtraClassesForDs.BinaryTreeExtraClass;
+
+import java.util.Scanner;
+
+class BinaryTree {
+
+	private class Node {
+		Node left;
+		Node right;
+		int data;
+
+	}
+
+	int size;
+	Node root;
+
+	public BinaryTree() {
+
+		Scanner scn = new Scanner(System.in);
+		root = takeInput(this.root, false, scn);
+	}
+
+	private Node takeInput(Node parent, boolean ilc, Scanner scn) {
+
+		if (parent == null) {
+			System.out.println("root?");
+
+		} else {
+			if (ilc) {
+				System.out.println("Data for left child");
+			} else {
+				System.out.println("Data for right child");
+			}
+		}
+
+		int dat = scn.nextInt();
+		Node child = new Node();
+		this.size++;
+		child.data = dat;
+
+		// for left
+		System.out.println("Does" + parent + " have a left child ?");
+		boolean a = scn.nextBoolean();
+		if (a) {
+			child.left = takeInput(child, true, scn);
+		}
+
+		// for right
+		System.out.println("Does" + parent + " have a right child ?");
+		boolean b = scn.nextBoolean();
+		if (b) {
+			child.right = takeInput(child, false, scn);
+		}
+
+		return child;
+
+	}
+
+	public int size() {
+		return this.size;
+	}
+
+	public boolean isEmpty() {
+		return this.size == 0;
+	}
+
+	public void display() {
+		display(this.root);
+	}
+
+	private void display(Node node) {
+		if (node == null) {
+			return;
+		}
+
+		String str = "";
+
+		if (node.left != null) {
+			str += node.left.data;
+		} else {
+			str += ".";
+		}
+		str += "=>" + node.data + "<=";
+		if (node.right != null) {
+			str += node.right.data;
+		} else {
+			str += ".";
+		}
+		System.out.println(str);
+
+		display(node.left);
+		display(node.right);
+	}
+
+	private int size2(Node node) {
+		if (node == null) {
+			return 0;
+		}
+
+		int ls = size2(node.right);
+		int rs = size2(node.left);
+
+		return ls + rs + 1;
+	}
+
+	public int size2() {
+		return size2(this.root);
+	}
+
+	public int height() {
+		return height(this.root);
+	}
+
+	private int height(Node node) {
+		if (node == null) {
+			return -1;
+		}
+
+		int l = height(node.left);
+		int r = height(node.right);
+
+		return Math.max(l, r) + 1;
+	}
+
+	public int max() {
+		return max(this.root);
+	}
+
+	private int max(Node node) {
+		if (node == null) {
+			return Integer.MIN_VALUE;
+		}
+
+		int l = max(node.left);
+		int r = max(node.right);
+
+		return Math.max(l, Math.max(r, node.data));
+	}
+
+	public boolean find(int data) {
+		return find(this.root, data);
+	}
+
+	private boolean find(Node node, int data) {
+		if (node == null) {
+			return false;
+		}
+
+		if (node.data == data) {
+			return true;
+		}
+
+		boolean rv = find(node.left, data);
+		if (rv) {
+			return rv;
+		} else {
+			rv = find(node.right, data);
+		}
+
+		return rv;
+
+	}
+
+	public void removeNode() {
+		removenode(this.root);
+	}
+
+	private void removenode(Node node) {
+
+		if (node.left == null && node.right == null) {
+
+		}
+
+	}
+
+	public int diameter() {
+		return diameter(this.root);
+	}
+
+	private int diameter(Node node) {
+		if (node == null) {
+			return 0;
+		}
+		int l = diameter(node.left);
+		int r = diameter(node.right);
+		int max = Math.max(l, r);
+
+		int l1 = height(node.left);
+		int l2 = height(node.right);
+		int sum = l1 + l2 + 2;
+
+		return Math.max(max, sum);
+
+	}
+
+	private class diaPair {
+		int height;
+		int diameter;
+	}
+
+	public int diameter2() {
+		return diameter2(this.root).diameter;
+	}
+
+	private diaPair diameter2(Node node) {
+if(node==null) {
+	diaPair bp = new diaPair();
+	bp.height = -1 ;
+	bp.diameter =0;
+	return bp;
+}
+		
+		diaPair lp = diameter2(node.left);
+		diaPair rp = diameter2(node.right);
+
+		diaPair mp = new diaPair();
+
+		mp.height = lp.height + rp.height + 1;
+		mp.diameter = Math.max(lp.height + rp.height + 2,
+				Math.max(lp.diameter, rp.diameter));
+		
+		return mp;
+	}
+	
+	
+}

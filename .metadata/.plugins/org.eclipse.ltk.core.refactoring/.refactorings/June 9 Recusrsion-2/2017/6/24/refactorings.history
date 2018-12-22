@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;June 9 Recusrsion-2/src/ArrayList11.java&apos; to &apos;intersectionof2arrays.java&apos;" description="Rename resource &apos;ArrayList11.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/ArrayList11.java" name="intersectionof2arrays.java" stamp="1497295117200" updateReferences="true"/>
+</session>

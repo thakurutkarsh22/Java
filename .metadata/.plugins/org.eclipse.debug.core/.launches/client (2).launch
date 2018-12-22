@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/June 26 DS-1/src/july10/client.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="july10.client"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="Limited patent license.  Intel Corporation grants a world-wide,&#10;royalty-free, non-exclusive license under patents it now or hereafter&#10;owns or controls to make, have made, use, import, offer to sell and&#10;sell (&quot;Utilize&quot;) this software, but solely to the extent that any&#10;such patent is necessary to Utilize the software alone, or in&#10;combination with an operating system licensed under an approved Open&#10;Source license as listed by the Open Source Initiative at&#10;http://opensource.org/licenses.  The patent license shall not apply to&#10;any other combinations which include this software.  No hardware per&#10;se is licensed hereunder."/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="June 26 DS-1"/>
+</launchConfiguration>

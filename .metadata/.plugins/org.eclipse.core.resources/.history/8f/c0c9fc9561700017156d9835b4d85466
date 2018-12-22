@@ -1,0 +1,14 @@
+package GenericTreeExtraClass;
+
+
+
+public class Client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		GenericTree t = new GenericTree();
+		t.display();
+	}
+
+}

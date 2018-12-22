@@ -1,0 +1,26 @@
+package july10;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class TypingTuitor extends JFrame{
+
+	
+	JLabel timer ;
+	JLabel score ; 
+	JLabel word ;
+	JLabel text ;
+	JButton start ;
+	JButton stop ;
+	
+	public TypingTuitor() {
+		
+		
+		super.setVisible(true);
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;June 29 Ds-2/src/GreedyHuMai/DisjointSet.java&apos; to &apos;Main.java&apos;" description="Rename resource &apos;DisjointSet.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/GreedyHuMai/DisjointSet.java" name="Main.java" stamp="1530105074566" updateReferences="true"/>
+</session>

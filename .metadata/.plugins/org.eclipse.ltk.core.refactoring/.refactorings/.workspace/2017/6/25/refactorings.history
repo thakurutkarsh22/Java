@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;June 19 - Time complexity/src/PalindromeOfSubstrings.java&apos;" deleteContents="false" description="Delete resource &apos;June 19 - Time complexity/src/PalindromeOfSubstrings.java&apos;" element1="/June 19 - Time complexity/src/PalindromeOfSubstrings.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1498056482090"/>
+</session>

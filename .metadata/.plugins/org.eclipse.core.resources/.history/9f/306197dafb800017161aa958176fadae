@@ -1,0 +1,312 @@
+package StacksPractice;
+
+import java.util.Stack;
+
+import Adapter.StackUsingLL.StackUsingLL;
+
+public class client {
+
+	static StackUsingLL st = new StackUsingLL();
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		
+		 Twostacks ts = new Twostacks(5);
+		// ts.push1(5);
+		// ts.push2(10);
+		// ts.push2(15);
+		// ts.push1(11);
+		// ts.push2(7);
+		// System.out.println("Popped element from" +
+		// " stack1 is " + ts.pop1());
+		// ts.push2(40);
+		// System.out.println("Popped element from" +
+		// " stack2 is " + ts.pop2());
+		//
+		// System.out.println(ts.balanceParanthesis("a+b*(c^d-e)^(f+g*h)-i"));
+		//
+		// StackUsingLL stack = new StackUsingLL();
+		//// Stack<Integer> stack = new Stack<>();
+		// stack.push(10);
+		// stack.push(20);
+		// stack.push(30);
+		// stack.push(40);
+		// stack.push(50);
+		// stack.display();
+		//// System.out.println(stack.top());
+		// displayReverse(stack);
+		// System.out.println("------------------");
+		// stack.display();
+		// System.out.println("------------------");
+		//
+		// StackUsingLL helper = new StackUsingLL();
+		// Reverse(stack, helper);
+		// stack.display();
+		//// helper.display();
+
+		st.push(20);
+		st.push(40);
+		st.push(10);
+		st.push(30);
+		st.push(50);
+		st.display();
+		reverse();
+		st.display();
+		
+		sort();
+		st.display();
+		
+//		int k =ts.length("()(()))))");
+//		System.out.println(k);
+		
+		System.out.println(ts.toh("S", "D", "H", 4	));
+		int [] arr =  {11 ,13,21,3,4};
+		nextgreater();
+		System.out.println(parenthesis("{[]()}"));
+		System.out.println(countminreversals("{{{{}}"));
+		System.out.println(lengthofLongest(")()())"));
+	}
+
+	// display reverse
+
+	public static void displayReverse(StackUsingLL st) throws Exception {
+
+		if (st.isEmpty()) {
+			return;
+		}
+
+		int item = st.pop();
+
+		displayReverse(st);
+
+		System.out.println(item);
+
+		st.push(item);
+
+	}
+
+	// reverse the stack
+
+	public static void Reverse(StackUsingLL stack, StackUsingLL helper) throws Exception {
+
+		if (stack.isEmpty()) {
+
+			if (helper.isEmpty()) {
+				return;
+
+			}
+			int item = helper.pop();
+
+			Reverse(stack, helper);
+			stack.push(item);
+
+			return;
+		}
+
+		int item = stack.pop();
+		helper.push(item);
+		Reverse(stack, helper);
+
+	}
+
+	static void insert_at_bottom(int x) throws Exception {
+
+		if (st.isEmpty()) {
+			st.push(x);
+		} else {
+
+			int p = st.pop();
+			insert_at_bottom(x);
+			st.push(p);
+
+		}
+
+	}
+
+	static void reverse() throws Exception {
+
+		if (st.isEmpty()) {
+
+			return;
+		}
+		int k = st.pop();
+
+		reverse();
+		insert_at_bottom(k);
+
+	}
+
+	// 9.0 sort stack by recursion
+
+	static void sort() throws Exception {
+		if (st.isEmpty()) {
+
+			return;
+		}
+		int k = st.pop();
+
+		sort();
+		sorting(k);
+	}
+
+	static void sorting(int x) throws Exception {
+
+		if (st.isEmpty()) {
+			st.push(x);
+		} else {
+
+			if (x > st.top()) {
+				st.push(x);
+			}else {
+				
+				int p = st.pop();
+				sorting(x);
+				st.push(p);				
+			}
+
+		}
+
+	}
+	
+	// next greater element 7.0
+	
+	public static void nextgreater() {
+		int [] arr =  {11 ,13,21,3,4};
+		NGE(arr);
+	}
+	
+	private static void NGE(int[] arr) {
+		
+		Stack<Integer> stack = new Stack<>();
+		
+		stack.push(arr[0]);
+		int next , element ;
+		for (int i =1; i < arr.length ; i++) {
+			next = arr[i];
+			
+			if(!stack.isEmpty()) {
+				element = stack.pop() ;
+				
+				while(element < next) {
+					System.out.println(element + "  " + next);
+					if (stack.isEmpty()) {
+						break;
+					}
+					element = stack.pop();
+					
+				}
+				if(element>next) {
+					stack.add(element);
+				}
+				
+			}
+			
+			stack.push(next);
+		}
+		
+		while(!stack.isEmpty()) {
+			next = stack.pop();
+			element = -1 ;
+			
+			System.out.println(next +"  " + element);
+		}
+	}
+	
+	// check  for balanced parenthesis 6.0
+	
+	public static boolean parenthesis (String str) {
+		Stack<Character> stack = new Stack<>();
+		
+		for (int i =0 ; i < str.length() ;i++) {
+			char ch = str.charAt(i);
+			
+			if(ch=='['|| ch=='{' ||ch=='(') {
+				stack.push(ch);
+			}else if (ch==']' ||ch=='}'||ch==')') {
+				if(stack.isEmpty()) {
+					return false ;
+				}
+				
+				else if (!ismatchingPair(stack.pop() , ch)) {
+					return false;
+				}
+			}
+		}
+		
+		if (stack.isEmpty()) {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
+	private static boolean ismatchingPair(char character1, char character2)
+    {
+       if (character1 == '(' && character2 == ')')
+         return true;
+       else if (character1 == '{' && character2 == '}')
+         return true;
+       else if (character1 == '[' && character2 == ']')
+         return true;
+       else
+         return false;
+    }
+	// min no of reverssals of parenthesis 19 
+	
+	public static int countminreversals(String str) {
+		
+		Stack<Character> stack = new Stack<>();
+		
+		for (int i =0 ; i < str.length() ; i++) {
+			char ch = str.charAt(i);
+			if ( ch=='}'  &&!stack.isEmpty()) {
+				if(stack.peek()=='{') {
+					stack.pop();
+				}else {
+					stack.push(ch);
+				}
+			}else {
+				stack.push(ch);
+			}
+		}
+		
+		int len = stack.size();
+		int count = 0 ;
+		int count1 =0 ;
+		
+		while (!stack.isEmpty() && stack.peek() == '{') {
+			stack.pop();
+			count++;
+		}
+		while (!stack.isEmpty() && stack.peek() == '}') {
+			stack.pop();
+			count1++;
+		}
+		return (len/2 + count%2) ;
+		
+	}
+	
+	public static int lengthofLongest(String str) {
+		
+		Stack<Character> stack =  new Stack<>();
+		int count =0 ;
+		for(int i= 0 ; i < str.length() ; i++) {
+			char ch = str.charAt(i);
+			
+			if(ch==')' && !stack.isEmpty()) {
+				if(stack.peek()=='(') {
+					stack.pop();
+					count++;
+				}
+				stack.push(ch);
+			}
+			
+			stack.push(ch);
+		}
+		return count*2;
+	}
+	
+	
+}

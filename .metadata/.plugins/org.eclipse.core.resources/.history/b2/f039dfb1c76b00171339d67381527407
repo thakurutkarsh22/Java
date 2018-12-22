@@ -1,0 +1,107 @@
+package StacksPractice;
+
+import java.util.Stack;
+
+public class Twostacks {
+
+	protected int size;
+	protected int[] arr;
+	protected int tos1;
+	protected int tos2;
+
+	public Twostacks(int n) {
+		// TODO Auto-generated constructor stub
+		this.size = n;
+		this.tos1 = -1;
+		this.tos2 = size;
+		this.arr = new int[n];
+	}
+
+	public void push1(int data) throws Exception {
+
+		if (tos1 < tos2) {
+			tos1++;
+			arr[tos1] = data;
+
+		} else {
+			throw new Exception("Error occured");
+		}
+
+	}
+
+	public void push2(int data) throws Exception {
+
+		if (tos1 < tos2) {
+			tos2--;
+			arr[tos2] = data;
+
+		} else {
+			throw new Exception("Error Occoured");
+		}
+
+	}
+
+	public int pop1() {
+		int rv = 0;
+		if (tos1 >= 0) {
+			rv = arr[tos1];
+			tos1--;
+
+		} else {
+			System.out.println("Sack underflow");
+			System.exit(1);
+		}
+
+		return rv;
+
+	}
+
+	public int pop2() {
+		int rv = 0;
+
+		if (tos2 <= size) {
+			rv = arr[tos2];
+			tos2++;
+
+		} else {
+			System.out.println("Sack underflow");
+			System.exit(1);
+		}
+
+		return rv;
+
+	}
+
+	// check for balanced parenthesis
+
+	public boolean balanceParanthesis(String str) {
+
+		Stack<Character> stack = new Stack<>();
+		for (int i = 0; i < str.length(); i++) {
+			char ch = str.charAt(i);
+
+			if (ch == '(' || ch == '{' || ch == '[') {
+				stack.push(ch);
+			} 
+			
+			if (ch == ')' || ch == '}' || ch == ']') {
+				
+				if (stack.peek() == ')' && ch == '(') {
+					stack.pop();
+					return true;
+				}else if (stack.peek() == '}' && ch == '{') {
+					stack.pop();
+					return true;
+				}else if (stack.peek() == ']' && ch == '[') {
+					stack.pop();
+					return true;
+				}
+				
+			}
+
+			
+		}
+		return false;
+
+	}
+}

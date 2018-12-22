@@ -1,0 +1,16 @@
+package GenericTreeExtraClass;
+
+
+
+public class Client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//10 3 20 2 50 0 60 0 30 3 70 0 80 0 90 0 40 1 100 0
+
+		GenericTree t = new GenericTree();
+		t.display();
+		t.isEmpty();
+	}
+
+}

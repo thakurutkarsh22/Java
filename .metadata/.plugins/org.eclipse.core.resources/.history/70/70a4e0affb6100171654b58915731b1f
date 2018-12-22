@@ -1,0 +1,122 @@
+package July5;
+
+import java.util.Scanner;
+
+public class BinaryTree {
+
+	
+	private class Node {
+		int data ;
+		Node left ;
+		Node right ;
+		}
+	
+	private Node root ;
+	private int size ;
+	
+	public BinaryTree() {
+		this.root = this.takeInpur(new Scanner(System.in) , null , false);
+	}
+	
+	public Node takeInpur(Scanner scn , Node parent , boolean ilc) {
+		
+		// prompt 
+		
+		if(parent==null) {
+			System.out.println("Root Node ? ");
+		}else if(ilc) {
+			System.out.println("Enter the left child for ==>" + parent.data );
+		} else {
+			
+		System.out.println("Enter the right child for ==>" + parent.data );
+					
+		}
+		
+		// collect data and create node 
+		
+		int cdata = scn.nextInt();
+		Node child = new Node();
+		child.data = cdata;
+		this.size++;
+		
+		
+		// left 
+		System.out.println("Do you have Left child for " + child.data);
+		boolean hlc = scn.nextBoolean();
+		takeInpur(scn, child, true); 
+		
+		if(hlc) {
+			child.left=  takeInpur(scn, child, true);
+			
+		}else {
+			
+			System.out.println(".");
+		}
+		
+		
+		
+		// right 
+		
+		System.out.println("Do you have right child for " + child.data);
+		boolean hrc = scn.nextBoolean();
+		takeInpur(scn, child, true); 
+		
+		if(hrc) {
+			child.right=  takeInpur(scn, child, false);
+			
+		}else {
+			
+			System.out.println(".");
+		}
+		
+		
+		
+		// return
+	
+		return child;
+	
+	}
+	public void display() {
+		
+		display(this.root);
+	}
+	private void display (Node node ) {
+		
+		String str = " "; 
+		
+		if (node == null) {
+			return ;
+		}
+		
+		if(node.left!=null) {
+			str+=node.left.data;
+		}else {
+			
+			str+=".";
+		}
+		
+		System.out.println( "==>" + node.data + "<== ");
+		
+		if(node.right!=null) {
+			str+=node.right.data;
+		}else {
+			
+			str+=".";
+		}
+		
+		this.display(node.left);
+		this.display(node.right);
+		
+	}
+	
+	public int size() {
+		return this.size;
+	}
+	
+	public boolean Isempty() {
+		return this.size()==0 ;
+		
+	}
+	
+	
+}

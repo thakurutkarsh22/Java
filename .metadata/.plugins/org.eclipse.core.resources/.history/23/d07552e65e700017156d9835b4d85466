@@ -1,0 +1,68 @@
+package GenericTreeExtraClass;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import July3.GenericTree.Node;
+
+public class GenericTree {
+
+	private class Node{
+		int data ;
+		ArrayList<Node> children = new ArrayList<>();
+	}
+	
+	private Node root ;
+	private int  size;
+	
+	public GenericTree() {
+		Scanner scn = new Scanner(System.in);
+		root = takeInput(null, this.root, scn);
+	}
+	
+	private Node takeInput(Node parent , Node children , Scanner scn ) {
+		
+		if (parent==null) {
+			System.out.println("parent node?");
+		}else {
+			System.out.println("child for "+parent.data + "?");
+		}
+		
+		// 
+		
+
+		int cdata = scn.nextInt();
+		Node child = new Node();
+		this.size++;
+		child.data = cdata;
+		
+		
+		for (Node childs : child.children) {
+			takeInput(childs, childs, scn);
+		}
+		
+		
+		
+		return child;
+		
+		
+	}
+	
+	public void display() {
+		display(this.root);
+	}
+	private void display(Node node) {
+		
+		String str = node.data + "=>";
+		
+		for (Node child : node.children) {
+			str+=child.data;
+		}
+		System.out.println(".");
+				
+		for (Node child : node.children) {
+			display(child);
+		}
+		
+	}
+}

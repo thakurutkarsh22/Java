@@ -1,0 +1,82 @@
+package StacksPractice;
+
+import java.util.Stack;
+
+import Adapter.StackUsingLL.StackUsingLL;
+
+public class client {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		
+		Twostacks ts = new Twostacks(5);
+//        ts.push1(5);
+//        ts.push2(10);
+//        ts.push2(15);
+//        ts.push1(11);
+//        ts.push2(7);
+//        System.out.println("Popped element from" +
+//                           " stack1 is " + ts.pop1());
+//        ts.push2(40);
+//        System.out.println("Popped element from" +
+//                         " stack2 is " + ts.pop2());
+//    
+//        System.out.println(ts.balanceParanthesis("a+b*(c^d-e)^(f+g*h)-i"));
+//    
+		StackUsingLL stack = new StackUsingLL();
+//		Stack<Integer> stack = new Stack<>();
+		stack.push(10);
+		stack.push(20);
+		stack.push(30);
+		stack.push(40);
+		stack.push(50);
+		stack.display();
+//		System.out.println(stack.top());
+        displayReverse(stack);
+        System.out.println("------------------");
+        stack.display();
+        System.out.println("------------------");
+        
+        Reverse(stack, new StackUsingLL());
+        stack.display();
+
+	}
+	
+	// display reverse 
+	
+	public static void displayReverse(StackUsingLL st) throws Exception{
+		
+		if (st.isEmpty()) {
+			return ;
+		}
+		
+		int item = st.pop();
+		
+		displayReverse(st);
+		
+		System.out.println(item );
+		
+		st.push(item);
+		
+		
+	}
+	
+	// reverse the stack 
+	
+	public static void Reverse(StackUsingLL stack , StackUsingLL helper) throws Exception {
+		
+		if (stack.isEmpty()) {
+			
+			stack=helper;
+			
+			return ;
+		}
+		
+		int item = stack.pop();
+		helper.push(item);
+		Reverse(stack, helper);
+		
+		
+	}
+
+}

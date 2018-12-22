@@ -1,0 +1,108 @@
+package StacksPractice;
+
+
+public class MiddleOpStack {
+
+	public static void main(String[] args) throws Exception {
+		MiddleOpStack n = new MiddleOpStack();
+//		n.push(10);
+		n.push(20);
+		n.push(30);
+		n.push(40);
+		n.push(50);
+		n.push(60);
+		n.display();
+	}
+	
+	public class Node {
+		Node next;
+		Node prev;
+		int data;
+
+	}
+
+	Node top;
+	Node middle;
+	int size;
+
+	public MiddleOpStack() {
+		this.size = 0;
+		this.top = null;
+		this.middle = null;
+	}
+
+	public void push(int item) {
+		if (top == null) {
+			Node node = new Node();
+			this.size++;
+			this.top = node;
+			this.middle = top;
+			return;
+
+		}
+
+		Node node = new Node();
+		node.data = item;
+		this.size++;
+		top.next = node;
+		node.prev = top;
+		top = top.next;
+
+		if (this.size % 2 == 1) {
+			this.middle = middle.next;
+		}
+
+	}
+
+	public int pop() throws Exception {
+		if (this.top == null) {
+			throw new Exception("Stack is EMpty");
+		}
+		int rv = this.top.data;
+
+		this.top = this.top.prev;
+		this.top.next = null;
+		this.size--;
+		if (this.size % 2 == 0) {
+			this.middle = this.middle.prev;
+		}
+		return rv;
+
+	}
+
+	public int middle() throws Exception {
+		if (middle == null) {
+			throw new Exception("Stack is EMpty");
+		}
+		return this.middle.data;
+	}
+
+	public int removeMiddle() throws Exception {
+		if (middle == null) {
+			throw new Exception("Middle is not present");
+		}
+		
+		int rv = middle.data;
+		Node prev = middle.prev ;
+		Node succ = middle.next ;
+		
+		middle = middle.prev ;
+		prev.next = succ ;
+		succ.prev = prev ;
+		this.size--;
+		
+		
+		return rv;
+
+	}
+	
+	public void display() {
+		Node temp = this.top;
+		while(temp!=null) {
+			System.out.print(temp.data + " ");
+			temp=temp.prev ;
+		}
+		System.out.println(".");
+	}
+
+}

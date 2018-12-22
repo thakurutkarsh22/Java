@@ -1,0 +1,129 @@
+package july10;
+
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.Timer;
+
+public class TypingTuitor extends JFrame implements ActionListener{
+
+	boolean running ;
+	int timeRemaining;
+	int score;
+	Timer timer ;
+	
+	JLabel lbltimer ;
+	JLabel lblscore ; 
+	JLabel lblword ;
+	JTextField txtword ;
+	JButton btnstart ;
+	JButton btnstop ;
+	
+	public TypingTuitor() {
+		
+		super.setTitle("TyPing MasTer ");
+		super.setSize(1366  , 786 );
+//		super.setMaximizedBounds(MAXIMIZED_BOTH);
+		GridLayout layout = new GridLayout(3,2) ;
+		super.setLayout(layout);
+		
+		Font font = new Font("Comic Sans MS" , 1 , 150 );
+		
+		lbltimer = new JLabel() ;
+		lbltimer.setFont(font);
+		super.add(lbltimer);
+		
+		lblscore = new JLabel() ;
+		lblscore.setFont(font);
+		super.add(lblscore);
+		
+		lblword = new JLabel( );
+		lblword.setFont(font);
+		super.add(lblword);
+		
+		txtword = new JTextField() ;
+		txtword.setFont(font);
+		super.add(txtword);
+		
+		btnstart = new JButton() ;
+		btnstart.setFont(font);
+		btnstart.addActionListener(this);
+		super.add(btnstart);
+		
+		btnstop = new JButton() ;
+		btnstop.setFont(font);
+		btnstop.addActionListener(this);
+		super.add(btnstop);
+		
+		
+		
+		
+		GameStart();
+		
+		super.setVisible(true);
+	}
+
+	public void GameStart () {
+		
+		
+		 running = false;
+		 timeRemaining = 50;
+		 score = 0;
+		 timer = new Timer(2000, this);
+		
+		 lbltimer.setText("Time :" + timeRemaining ); 
+		 lblscore.setText("Score " ); ; 
+		 lblword.setText("Word") ;
+		 txtword.setText("text"); 
+		 txtword.setEnabled(false);
+		
+		 btnstart.setText("Start") ;
+		 btnstop.setText("Stop");
+		 btnstop.setEnabled(false) ;
+		
+		
+	}
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnstart) {
+			handleStart();
+		}else if(e.getSource() == btnstop) {
+			handleStop();
+		}else if(e.getSource()==timer) {
+			handleTimer();
+		}
+		
+	}
+
+	private void handleTimer() {
+		if(timeRemaining>0) {
+			
+			String expected = lblword
+		}
+		
+	}
+
+	private void handleStop() {
+	
+	}
+
+	private void handleStart() {
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+}

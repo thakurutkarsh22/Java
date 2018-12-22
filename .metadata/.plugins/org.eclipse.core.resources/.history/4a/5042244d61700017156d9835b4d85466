@@ -1,0 +1,17 @@
+package GenericTreeExtraClass;
+
+import July5.BinaryTree;
+
+public class Client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		BinaryTree b = new BinaryTree();
+		System.out.println("yo mao");
+		b.display();
+		System.out.println("yo man");
+		
+	}
+
+}

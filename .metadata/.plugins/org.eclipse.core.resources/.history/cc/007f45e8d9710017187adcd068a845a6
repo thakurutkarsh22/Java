@@ -1,0 +1,18 @@
+package ExtraClassesForDs.BinaryTreeExtraClass;
+
+public class client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+// 50 true 25 true 12 false false true 37 false false true 15 true 62 false false true 87 false false	
+		BinaryTree bt = new BinaryTree();
+		bt.display();
+		System.out.println(bt.size2() + "  " + bt.size + " size ");
+		System.out.println(bt.height());
+		System.out.println(bt.max());
+		System.out.println(bt.find(87));
+	}
+	
+	
+
+}

@@ -1,0 +1,67 @@
+package july10;
+
+import java.awt.Font;
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class TypingTuitor extends JFrame{
+
+	
+	JLabel timer ;
+	JLabel score ; 
+	JLabel word ;
+	JTextField text ;
+	JButton start ;
+	JButton stop ;
+	
+	public TypingTuitor() {
+		
+		super.setTitle("TyPing MasTer ");
+		super.setSize(1366  , 786 );
+		GridLayout layout = new GridLayout(3,2) ;
+		super.setLayout(layout);
+		
+		Font font = new Font("Comic Sans MS" , 1 , 150 );
+		
+		timer = new JLabel("Timer") ;
+		timer.setFont(font);
+		super.add(timer);
+		
+		score = new JLabel("Score") ;
+		score.setFont(font);
+		super.add(score);
+		
+		word = new JLabel("Word") ;
+		word.setFont(font);
+		super.add(word);
+		
+		text = new JTextField("") ;
+		text.setFont(font);
+		super.add(text);
+		
+		start = new JButton("start") ;
+		start.setFont(font);
+		super.add(start);
+		
+		stop = new JButton("stop") ;
+		stop.setFont(font);
+		super.add(stop);
+		
+		
+		
+		
+		
+		
+		super.setVisible(true);
+	}
+	
+	
+	
+	
+	
+}

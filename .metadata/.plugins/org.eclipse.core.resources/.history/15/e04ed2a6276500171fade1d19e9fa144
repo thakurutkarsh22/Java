@@ -1,0 +1,40 @@
+package july10;
+
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class TypingTuitor extends JFrame{
+
+	
+	JLabel timer ;
+	JLabel score ; 
+	JLabel word ;
+	JLabel text ;
+	JButton start ;
+	JButton stop ;
+	
+	public TypingTuitor() {
+		
+		super.setTitle("TyPing MasTer ");
+		super.setSize(1366  , 786 );
+		GridLayout layout = new GridLayout(3,2) ;
+		super.setLayout(layout);
+		
+		
+		
+		
+		
+		
+		
+		
+		super.setVisible(true);
+	}
+	
+	
+	
+	
+	
+}

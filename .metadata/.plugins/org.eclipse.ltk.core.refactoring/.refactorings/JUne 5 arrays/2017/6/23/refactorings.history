@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;JUne 5 arrays/src/BubbleSort.java&apos; to &apos;AllSort.java&apos;" description="Rename resource &apos;BubbleSort.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/BubbleSort.java" name="AllSort.java" stamp="1496748372184" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;JUne 5 arrays/src/test.java&apos; to &apos;exitloop.java&apos;" description="Rename resource &apos;test.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test.java" name="exitloop.java" stamp="1496832176519" updateReferences="true"/>
+</session>

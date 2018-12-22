@@ -1,0 +1,146 @@
+package Stacks;
+
+import java.util.Stack;
+
+public class stack {
+
+	protected int[] data;
+	protected int tos; // top of the stack
+
+	public stack(int cap) {
+		this.data = new int[cap];
+		this.tos = -1;
+	}
+
+	public void push(int item) throws Exception {
+
+		if (this.data.length == this.size()) {
+			throw new Exception("Bhai stack is full");
+		}
+		this.tos++;
+		this.data[this.tos] = item;
+
+	}
+
+	public int pop() throws Exception {
+
+		if (this.size() == 0) {
+			throw new Exception("Bhai stack is Empty");
+
+		}
+
+		int rv = this.data[this.tos];
+		this.tos--;
+
+		return rv;
+
+	}
+
+	public int top() throws Exception {
+
+		if (this.size() == 0) {
+			throw new Exception("Bhai stack is Empty");
+
+		}
+
+		int rv = this.data[this.tos];
+
+		return rv;
+
+	}
+
+	public int size() {
+
+		int rv = this.tos + 1;
+		return rv;
+
+	}
+
+	public boolean isEmpty() {
+
+		return this.size() == 0;
+	}
+
+	public void display() {
+
+		for (int i = this.size() - 1; i >= 0; i--) {
+
+			System.out.println(this.data[i]);
+			// System.out.print(" ");
+		}
+
+	}
+	
+	// practice 
+	
+// prefix 
+	
+	public String infixToPostfix(String str) throws Exception {
+		
+		String result = new String();
+		Stack<Character> stack = new Stack<>();
+		for (int i =0 ; i<str.length() ; i++) {
+			
+			char ch = str.charAt(i);
+			
+			if(Character.isLetterOrDigit(ch)) {
+				
+				result+=ch;
+			}else if(ch=='(') {
+				
+				stack.push(ch);
+				
+			}else if (ch==')') {
+				
+				while (!stack.isEmpty() &&stack.peek()!= '(') {
+					
+					result += stack.pop();
+				}
+				if (!stack.isEmpty() && stack.peek() != '(')
+                    return "Invalid Expression"; // invalid expression                
+                else
+                    stack.pop();
+				
+				
+			}else {
+				
+				while(!stack.isEmpty() && Prec(ch) <= Prec(stack.peek())){
+					result+= stack.pop();
+					
+					
+				}
+				stack.push(ch);
+			}
+			
+		}
+		
+		while(!stack.isEmpty()) {
+			
+			
+			result+= stack.pop();
+		}
+		
+	
+		
+		return result;
+		
+		
+	}
+	 static int Prec(char ch)
+	    {
+	        switch (ch)
+	        {
+	        case '+':
+	        case '-':
+	            return 1;
+	      
+	        case '*':
+	        case '/':
+	            return 2;
+	      
+	        case '^':
+	            return 3;
+	        }
+	        return -1;
+	    }
+}

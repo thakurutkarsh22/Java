@@ -1,0 +1,84 @@
+package july11;
+
+import java.util.Comparator;
+
+//import july11.GenericClient.Car;
+
+public class GenericHeapClient {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		GenericHeap<Car> car = new GenericHeap<>(null);
+		
+		Car[] cars = new Car[5];
+		cars[0] = new Car(50, 30000, "A") ;
+		cars[2] = new Car(100, 60000, "B") ;
+		cars[4] = new Car(150, 90000, "C") ;
+		cars[1] = new Car(125, 92000, "D") ;
+		cars[3] = new Car(250, 100000, "E") ;
+		car.display();
+		
+		
+		
+	}
+	private static class Car implements Comparable<Car> {
+		
+		 int speed;
+		 int price;
+		 String name;
+
+		Car(int speed, int price, String name) {
+
+			this.price = price;
+			this.name = name;
+			this.speed = speed;
+
+		}
+		
+
+		@Override
+		public int compareTo(Car o) {
+			// TODO Auto-generated method stub
+			return this.speed - o.speed;
+		}
+
+		@Override
+		public String toString() {
+			return "[S=" + this.speed + ",P =" + this.price + " ,N =" + this.name + "]";
+		}
+		
+		public static class CarSpeedComparator implements Comparator<Car>{
+
+			@Override
+			public int compare(Car o, Car t) {
+				// TODO Auto-generated method stub
+				return o.speed - t.speed;
+			}
+			
+		}
+
+		public static class CarPriceComparator implements Comparator<Car>{
+
+			@Override
+			public int compare(Car o1, Car o2) {
+				// TODO Auto-generated method stub
+				return o2.price - o1.price;
+			}
+			
+		}
+
+		public static class CarNameComparator implements Comparator<Car>{
+
+			@Override
+			public int compare(Car o1, Car o2) {
+				// TODO Auto-generated method stub
+				return o1.name.compareTo(o2.name);
+			}
+			
+		}
+		
+	
+
+	}
+}

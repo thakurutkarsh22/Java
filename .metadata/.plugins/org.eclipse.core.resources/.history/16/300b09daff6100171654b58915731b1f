@@ -1,0 +1,220 @@
+package July5;
+
+import java.util.Scanner;
+
+public class BinaryTree {
+
+	private class Node {
+		int data;
+		Node left;
+		Node right;
+	}
+
+	private Node root;
+	private int size;
+
+	public BinaryTree() {
+		this.root = this.takeInput(new Scanner(System.in), null, false);
+	}
+
+	public Node takeInput(Scanner scn, Node parent, boolean ilc) {
+
+		// prompt
+
+		if (parent == null) {
+			System.out.println("Root Node ? ");
+		} else if (ilc) {
+			System.out.println("Enter the left child for " + parent.data);
+		} else {
+
+			System.out.println("Enter the right child for " + parent.data);
+
+		}
+
+		// collect data and create node
+
+		int cdata = scn.nextInt();
+		Node child = new Node();
+		child.data = cdata;
+		this.size++;
+
+		// left
+		System.out.println("Do you have Left child for " + child.data);
+		boolean hlc = scn.nextBoolean();
+		// takeInput(scn, child, true);
+
+		if (hlc) {
+			child.left = takeInput(scn, child, true);
+
+		}
+		// else {
+		//
+		// System.out.println(".");
+		// }
+
+		// right
+
+		System.out.println("Do you have right child for " + child.data);
+		boolean hrc = scn.nextBoolean();
+		// takeInpur(scn, child, false);
+
+		if (hrc) {
+			child.right = takeInput(scn, child, false);
+		}
+		// else {
+		//
+		// System.out.println(".");
+		// }
+
+		// return
+
+		return child;
+
+	}
+
+	public void display() {
+
+		display(this.root);
+	}
+
+	private void display(Node node) {
+
+		String str = "";
+
+		if (node == null) {
+			return;
+		}
+
+		if (node.left != null) {
+			str += node.left.data;
+			// System.out.println(node.left.data + "===>");
+		} else {
+
+			str += ".";
+			// System.out.println(str + "===>");
+		}
+
+		// System.out.println( " " + node.data + " ");
+		str += " => " + node.data + " <= ";
+
+		if (node.right != null) {
+			str += node.right.data;
+			// System.out.println(node.right.data);
+		} else {
+
+			str += ".";
+		}
+
+		System.out.println(str);
+		this.display(node.left);
+		this.display(node.right);
+
+	}
+
+	public int size() {
+		return this.size;
+	}
+
+	public boolean Isempty() {
+		return this.size() == 0;
+
+	}
+
+	public int size2() {
+
+		return this.size2(this.root);
+	}
+
+	private int size2(Node node) {
+		if (node == null) {
+
+			return 0;
+		}
+
+		int ls = this.size2(node.left);
+		int rs = this.size2(node.right);
+
+		return ls + rs + 1;
+	}
+
+	public int max() {
+		return max(this.root);
+	}
+
+	private int max(Node node) {
+		if (node == null) {
+			return Integer.MIN_VALUE;
+		}
+
+		// if(node.left == null ||node.right == null ) {
+		// return node.data;
+		// }
+		int l = max(node.left);
+		int r = max(node.right);
+
+		int k = Math.max(l, Math.max(r, node.data));
+
+		return k;
+
+	}
+
+	public int height() {
+		return height(this.root);
+	}
+
+	private int height(Node node) {
+
+		if (node == null) {
+			return -1;
+		}
+
+		int lh = height(node.left);
+		int rh = height(node.right);
+
+		return Math.max(lh, rh) + 1;
+	}
+
+	public int min() {
+		return min(this.root);
+	}
+
+	private int min(Node node) {
+
+		if (node == null) {
+
+			return Integer.MAX_VALUE;
+		}
+
+		// if (root.left == null || root.right == null) {
+		//
+		// return root.data;
+		// }
+
+		int l = min(node.left);
+		int r = min(node.right);
+
+		return Math.min(Math.min(l, r), root.data);
+
+	}
+
+	public boolean find(int data) {
+		return find(this.root, data);
+	}
+
+	private boolean find(Node node, int data) {
+
+		if (node == null)
+			return false;
+
+		if (node.data == data) {
+			return true;
+		}
+
+		boolean left = find(node.left, data);
+		boolean right = find(node.right, data);
+
+		return left || right;
+
+	}
+
+}

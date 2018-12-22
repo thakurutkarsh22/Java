@@ -1,0 +1,48 @@
+package june1;
+
+import java.util.Scanner;
+
+public class abtoab {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Value enter :");
+		Scanner scn = new Scanner(System.in);
+
+		int n = scn.nextInt();
+		System.out.println("Given any Base :");
+		int ab = scn.nextInt();
+		
+		int dec = 0;
+		int abtp = 1;
+		while (n!=0)
+		{
+			int rem = n % 2;
+			n = n / 2;
+
+			dec = dec + rem * abtp;
+			abtp = abtp * ab;
+		}
+		
+		System.out.println(dec);
+		
+		System.out.println("Enter ab");
+		int ab1 = scn.nextInt();
+		
+		int n1 = 0;
+		int twtp = 1;
+		while (dec !=0)
+		{
+			
+			int rem = dec % ab1;
+			dec = dec / ab1;
+
+			n1 = n1 + rem * twtp;
+			twtp = twtp * 2;
+		}
+		
+		System.out.println(n1);
+	}
+
+}

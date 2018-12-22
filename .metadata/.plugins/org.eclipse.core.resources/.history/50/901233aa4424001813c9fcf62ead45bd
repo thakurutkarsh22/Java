@@ -1,0 +1,408 @@
+
+public class quesofassign7 {
+
+	public static void main(String[] args) {
+		//
+		// String ans = "1234";
+		// System.out.println(sum(ans));
+		// boolean ispalians = ispali("nitin");
+		// System.out.println(ispalians);
+		//
+		 String ques5 = duplicateseprn("hhelllo");
+		 System.out.println(ques5);
+		// String ques6 = replaceduplicate("abbgcca");
+		// System.out.println(ques6);
+		//
+		// String Ques7 = collectAllxoneoneside("xxasdxxfcxasdxxxdcx" , 0);
+		// System.out.println(Ques7);
+		//
+		// String Ques8 = functionhi("hixnchjhikahkihfshisah" );
+		// System.out.println(Ques8);
+		// int Ques8a = functionhia("hixnchjhikahkihfshisah" , 0 );
+		// System.out.println(Ques8a);
+		// String Ques8c = functionc("hixnchjhikahkihfshisahi");
+		// System.out.println(Ques8c);
+		//
+		// String Ques9 = functionHitb("hixnchjhithitkahkihfshisahit");
+		// System.out.println(Ques9);
+		// int Ques9a = functionHita("hixnchjhikahkihfshitsah", 0);
+		// System.out.println(Ques9a);
+//		String Ques9c = functionHitc("ihi");
+//		System.out.println(Ques9c);
+		//
+		// int Ques10 = twins("axaxa" , 0 );
+		// System.out.println(Ques10);
+
+		// int Ques11a = functioncountaaa_a("aaaaabcdaaabcdhaaa" , 0 );
+		// System.out.println(Ques11a);
+		// int Ques11b = functioncountaaa_b("aaaaaabcdaaabcdhaaa" , 0 );
+		// System.out.println(Ques11b);
+
+	}
+
+	// question 1 .
+	public static int printsum(String str) {
+		if (str.length() == 0) {
+			return 0;
+		}
+		int sum = 0;
+		String ch = str.substring(0, 1); // 1
+		String ros = str.substring(1);// 234
+
+		sum = printsum(ros);
+		sum = sum + Integer.parseInt(ch);
+
+		return sum;
+
+	}
+
+	public static int sum(String str) {
+		if (str.length() == 0) {
+			return 0;
+		}
+
+		char ch = str.charAt(0);
+		String ros = str.substring(1);
+		int sum1 = sum(ros);
+		sum1 = ch + 0 + sum1;
+
+		return sum1;
+	}
+
+	// question 2
+
+	// public static int ques2(String str) {
+	//
+	// StringBuilder sb = new StringBuilder(str);
+	//
+	// char ch = sb.charAt(0);
+	// String ros = str.substring(1);
+	// int ans = ques2(ros);
+	//
+	// return Integer.parseInt(ch);
+	//
+	// }
+
+	// questtion 3
+
+	// public static boolean ques4(String str){
+
+	// }
+
+	// question 4
+
+	public static boolean ispali(String s) // IS PALINTROME
+	{
+		if (s.length() == 0 || s.length() == 1) {
+
+			return true;
+		}
+
+		if (s.charAt(0) == s.charAt(s.length() - 1)) {
+
+			ispali(s.substring(1, s.length()));
+		} else {
+			return false;
+		}
+		return true;
+
+	}
+
+	// question 5
+	public static String duplicateseprn(String str) {
+
+		if (str.length() == 0 || str.length() == 1) {
+
+			return str.toString();
+		}
+
+		StringBuilder sb = new StringBuilder();
+		if (str.charAt(0) == str.charAt(1)) {
+			sb.append(str.charAt(0));
+			sb.append('*');
+			String rr = duplicateseprn(str.substring(1, str.length()));
+			sb.append(rr);
+
+			// System.out.println(sb);
+
+		} else {
+			sb.append(str.charAt(0));
+			String rr = duplicateseprn(str.substring(1, str.length()));
+			sb.append(rr);
+		}
+
+		return sb.toString();
+	}
+
+	// question 6
+	public static String replaceduplicate(String str) {
+		if (str.length() == 0 || str.length() == 1) {
+
+			return str.toString();
+		}
+
+		// String strr = replaceduplicate(str.substring(1));
+
+		StringBuilder sb = new StringBuilder();
+		if (str.charAt(0) == str.charAt(1)) {
+			sb.append(str.charAt(0));
+			// sb.append('*');
+			String rr = replaceduplicate(str.substring(2, str.length()));
+			sb.append(rr);
+
+			// System.out.println(sb);
+
+		} else {
+			sb.append(str.charAt(0));
+			String rr = replaceduplicate(str.substring(1, str.length()));
+			sb.append(rr);
+		}
+
+		return sb.toString();
+	}
+
+	// ques 7
+	public static String collectAllxoneoneside(String str, int count) {
+
+		if (str.length() == 0 || str.length() == 1) {
+
+			return str.toString();
+		}
+		StringBuilder nb = new StringBuilder();
+
+		StringBuilder sb = new StringBuilder();
+		if (str.charAt(0) == 'x') {
+			nb.append(str.charAt(0));
+			String rr = collectAllxoneoneside(str.substring(1, str.length()), count + 1);
+			sb.append(rr);
+		} else {
+			sb.append(str.charAt(0));
+			String rr = collectAllxoneoneside(str.substring(1, str.length()), count);
+			sb.append(rr);
+		}
+
+		return sb.toString() + nb.toString();
+
+	}
+
+	// question 8
+	public static String functionhi(String str) {
+
+		if (str.length() == 0 || str.length() == 1) {
+
+			return str.toString();
+		}
+		StringBuilder sb = new StringBuilder();
+		if (str.charAt(0) == 'h' && str.charAt(1) == 'i') {
+
+			String rr = functionhi(str.substring(2, str.length()));
+			sb.append(rr);
+
+		} else {
+			sb.append(str.charAt(0));
+			String rr = functionhi(str.substring(1, str.length()));
+			sb.append(rr);
+		}
+
+		return sb.toString();
+
+	}
+
+	public static int functionhia(String str, int count) {
+		if (str.length() == 0 || str.length() == 1) {
+
+			return count;
+		}
+		// StringBuilder sb = new StringBuilder();
+		// int count1 =0 ;
+		if (str.charAt(0) == 'h' && str.charAt(1) == 'i') {
+
+			count = functionhia(str.substring(2, str.length()), count + 1);
+
+		} else {
+
+			count = functionhia(str.substring(1, str.length()), count);
+
+		}
+
+		return count;
+	}
+
+	public static String functionc(String str) {
+		if (str.length() == 0 || str.length() == 1) {
+
+			return str.toString();
+		}
+		StringBuilder sb = new StringBuilder();
+
+		if (str.charAt(0) == 'h' && str.charAt(1) == 'i') {
+
+			sb.append("bye");
+			String rr = functionc(str.substring(2, str.length()));
+			sb.append(rr);
+
+		} else {
+			sb.append(str.charAt(0));
+			String rr = functionc(str.substring(1, str.length()));
+			sb.append(rr);
+		}
+		return sb.toString();
+
+	}
+
+	// question 9
+
+	public static int functionHita(String str, int count) {
+
+		if (str.length() == 0 || str.length() == 1) {
+
+			return count;
+		}
+
+		if (str.charAt(0) == 'h' && str.charAt(1) == 'i' && str.charAt(2) != 't') {
+
+			count = functionHita(str.substring(2, str.length()), count + 1);
+
+		} else {
+
+			count = functionHita(str.substring(1, str.length()), count);
+
+		}
+		// debug at ihi ;
+		return count;
+	}
+
+	public static String functionHitb(String str) {
+		if (str.length() == 0 || str.length() == 1) {
+
+			return str.toString();
+		}
+
+		StringBuilder sb = new StringBuilder();
+		if (str.charAt(0) == 'h' && str.charAt(1) == 'i' && str.charAt(2) != 't') {
+
+			String rr = functionHitb(str.substring(2, str.length()));
+			sb.append(rr);
+
+		} else {
+			sb.append(str.charAt(0));
+			String rr = functionHitb(str.substring(1, str.length()));
+			sb.append(rr);
+		}
+
+		return sb.toString();
+
+	}
+
+	public static String functionHitc(String str) {
+		if (str.length() == 0 || str.length() == 1) {
+
+			return str.toString();
+		}
+		StringBuilder sb = new StringBuilder();
+
+		if (str.charAt(0) == 'h' && str.charAt(1) == 'i' && str.charAt(2) != 't') {
+			
+			
+			if(str.length()>2){
+			sb.append("bye");
+			String rr = functionHitc(str.substring(2, str.length()));
+			sb.append(rr);
+			}		
+		
+		
+		
+		} else {
+			sb.append(str.charAt(0));
+			String rr = functionHitc(str.substring(1, str.length()));
+			sb.append(rr);
+		}
+		return sb.toString();
+
+	}
+
+	// question 10
+
+	public static int twins(String str, int count) {
+		if (str.length() == 0 || str.length() == 1) {
+
+			return count;
+		}
+		// StringBuilder rr = new StringBuilder();
+		if (str.charAt(0) == str.charAt(2)) {
+
+			count = twins(str.substring(1, str.length()), count + 1);
+		} else {
+
+			count = twins(str.substring(1, str.length()), count);
+		}
+		return count;
+	}
+
+	// question 10 sirs approach
+	// public static
+
+	// question 11
+
+	// public static int functioncountaaa_a(String str, int count) {
+	//
+	// if (str.length() == 0 || str.length() == 1 || str.length() == 2) {
+	//
+	// return count;
+	// }
+	//
+	// if (str.charAt(0) == 'a' && str.charAt(1) == 'a' && str.charAt(2) == 'a')
+	// {
+	//
+	// count = functioncountaaa_a(str.substring(1, str.length()), count + 1);
+	//
+	// } else {
+	//
+	// count = functioncountaaa_a(str.substring(1, str.length()), count);
+	//
+	// }
+	//
+	// return count;
+	// }
+
+	// public static int functioncountaaa_b(String str, int count) {
+	//
+	// if (str.length() == 0 || str.length() == 1 || str.length() == 2) {
+	//
+	// return count;
+	// }
+	//
+	// if (str.charAt(0) == 'a' && str.charAt(1) == 'a' && str.charAt(2) == 'a')
+	// {
+	//
+	// count = functioncountaaa_b(str.substring(3, str.length()), count + 1);
+	//
+	// } else {
+	//
+	// count = functioncountaaa_b(str.substring(1, str.length()), count);
+	//
+	// }
+	//
+	// return count;
+	// }
+
+	// question 14
+
+	// public static String betweenbrackets(String str) {
+	//
+	// StringBuilder sb = new StringBuilder();
+	// if (str.charAt(0) == '(' || str.chars(')')) {
+	//
+	// String rr = betweenbrackets(str.substring(1));
+	// sb.append(str.charAt(1));
+	//
+	// }
+	//
+	// else {
+	//
+	// betweenbrackets(str.substring(1));
+	// }
+	//
+	// }
+
+}

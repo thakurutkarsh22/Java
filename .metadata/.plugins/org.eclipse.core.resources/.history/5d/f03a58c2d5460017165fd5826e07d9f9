@@ -1,0 +1,48 @@
+package june1;
+
+import java.util.Scanner;
+
+public class rotate {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		System.out.println("Value enter :");
+		Scanner scn = new Scanner(System.in);
+		int num = scn.nextInt();
+	
+		// finding no of digits
+		
+		int  temp = num, d=0;
+		while (temp !=0)
+		{
+			d++;
+			temp =temp/10;
+		}
+	 int rot;	
+	// rotation value 
+		int r = scn.nextInt();
+		
+		if (r < 0 )
+		{
+			 rot = (r % d) + d;
+		}
+		else {
+		 rot = r % d ;
+		}
+       
+			int divisior =(int)Math.pow(10, rot);
+			
+			int quo = num / divisior ;
+			int rem = num % divisior ;
+			
+			int newnumber = newnumber + (rem*(int)Math.pow(10, d-r)) + quo ;
+			
+		
+		
+		
+		
+	}
+
+	System.out.println(newnumber);
+}

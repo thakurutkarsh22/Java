@@ -1,0 +1,44 @@
+package July5;
+
+public class Client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+// 50 true 25 true 12 false false true 37 false false true 75 true 62 false false true 87 false false
+		// 50 true 20 true 30 true 40 false false false false false 
+		//bst 50 true 25 true 12 false false true 37 false false true 75 true 60 false false true 87 false false 
+		BinaryTree bt = new BinaryTree();
+//		bt.display();
+//		System.out.println();
+////		System.out.println(bt.max());
+////		System.out.println(bt.min());
+////		System.out.println(bt.find(25));
+//		System.out.println(bt.height());
+//		System.out.println(bt.diameter()+ " Diameter");
+//		System.out.println(bt.diameter2() + " Diameter 2");
+//		System.out.println(bt.Isbalanced());
+//		System.out.println(bt.IsBST());  //doubt
+		
+//		bt.preorderI();
+//		System.out.println();
+//		bt.postOrder();
+//		System.out.println();
+//		bt.InOrder();
+		//bt.display();
+//		bt.levelOrder();
+//		System.out.println();
+//		bt.display();
+		
+//		int [] pre = {50,25,12,37,75,62,60,70,87,80,90};
+//		int [] pos = {12,37,25,60,70,62,80,90,87,75,50};
+//		int [] in = {12,25,37,50,60,62,70,75,80,87,90};
+//		
+//	BinaryTree at = new BinaryTree(pos , in);
+//	at.display();
+		
+	
+		// bt.multiSolver(25);
+		
+	}
+
+}

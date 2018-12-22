@@ -1,0 +1,85 @@
+package ExtraClassesForDs.BinaryTreeExtraClass;
+
+import java.beans.Expression;
+
+public class client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+// 50 true 25 true 12 false false true 37 false false true 15 true 62 false false true 87 false false	
+// 50 true 25 true 12 true 13 false  false false false false
+// 50 true 25 false false 75 false false false
+// 50 2 25 2 12 0 37 2 30 0 51 0 75 2 62 1 60 0 87 0
+// 50 true 25 true 12 false false true 37 true 30 false false true 49 false false true 75 true 62 true 60 false false false true 87 false false
+// 40 true 20 true 10 false false true 30 false false true 60 true 50 false false true 70 false false 
+
+		int[] pre = {50,25,12,37,15,62,87};
+		int[] pos = {12 , 37 , 25 , 62 , 87 ,  50 };
+		int[] in = {12,25,37,50,62,87};
+		int[] arr = {12,25,30,37,49,50,60,62,75,87};
+		
+		BinaryTree bt = new BinaryTree();
+		bt.display();
+		
+//		System.out.println("-------------");
+//		BinaryTree bts = new BinaryTree(arr);
+//		bts.display();
+//		System.out.println();
+//		bt.levelorder2();
+//		System.out.println();
+//		bt.rightView();
+		System.out.println("YO-YO-YO-YO");
+//		System.out.println(bt.loewstcommonancestor(4,5));
+//		System.out.println(bt.findLevel(5));
+//		System.out.println(bt.DIST(4, 6));
+//		bt.rightViewnonrec();
+//		bt.printkdistanceNode(2);
+//		System.out.println(bt.cousins(62, 37) + " leeve");
+		
+		// expression tree
+//		String postfix = "ab+ef*g*-";
+//		
+//		BinaryTree bt = new BinaryTree(postfix.toCharArray());
+//		bt.display();
+		
+		
+//		char[] chararray = postfix.toCharArray();
+//		for(int i =0 ; i <chararray.length ; i++) {
+//			System.out.println(chararray[i]);
+//		}
+		
+		// end expression tree
+		
+		
+		
+//		System.out.println(bt.size2() + "  " + bt.size + " size ");
+//		System.out.println(bt.height());
+//		System.out.println(bt.max());
+//		System.out.println(bt.find(87));
+//		System.out.println(bt.diameter());
+//		System.out.println(bt.diameter2());
+//		System.out.println(bt.IsBalanced());
+//		System.out.println(bt.IsBst());
+//		bt.preOrder();
+//		System.out.println();
+//		bt.postOrder();
+//		System.out.println();
+//		bt.inOrder();
+//		bt.removeNode();
+//		System.out.println("ads");
+//		bt.display();
+//		bt.printWithNoSibling();
+//		bt.zicZacRecursive();
+//		System.out.println();
+//		bt.ziczacI();
+//		System.out.println(bt.noofleafnodes());
+//		System.out.println(bt.lowestcommon(8,14) );
+//		bt.mirror(bt.root);
+//		bt.display();
+////		System.out.println(bt.isfoldable());
+//		bt.isfoldable();
+	}
+	
+	
+
+}

@@ -1,0 +1,130 @@
+package ExtraClassesForDs.BinaryTreeExtraClass;
+
+import java.util.Scanner;
+
+class BinaryTree {
+
+	private class Node{
+		Node left;
+		Node right;
+		int data;
+		
+	}
+	
+	int size;
+	Node root;
+	
+	public BinaryTree() {
+	
+		Scanner scn = new Scanner(System.in);
+		root = takeInput(this.root ,false , scn);
+	}
+	
+	private Node takeInput(Node parent , boolean ilc , Scanner scn) {
+		
+		if(parent==null) {
+			System.out.println("root?");
+			
+		}else {
+			if(ilc) {
+				System.out.println("Data for left child");
+			}else {
+				System.out.println("Data for right child");
+			}
+		}
+		
+		int dat = scn.nextInt();
+		Node child = new Node();
+		this.size++;
+		child.data  = dat;
+		
+		// for left
+		System.out.println("Does" +parent + " have a left child ?");
+		boolean a = scn.nextBoolean();
+		if (a) {
+			child.left = takeInput(child, true, scn);
+		}
+		
+		// for right
+		System.out.println("Does" +parent + " have a right child ?");
+		boolean b = scn.nextBoolean();
+		if (b) {
+			child.right = takeInput(child, false, scn);
+		}
+		
+		return child;
+		
+	}
+	
+	public int size() {
+		return this.size;
+	}
+	public boolean isEmpty() {
+		return this.size==0;
+	}
+	public void display() {
+		display(this.root);
+	}
+	private void display(Node node) {
+		if(node==null) {
+			return;
+		}
+		
+		String str = "";
+		
+		if (node.left!= null) {
+			str+=node.left.data;
+		}else {
+			str+=".";
+		}
+		str+="=>" +node.data+ "<=";
+		if (node.right!= null) {
+			str+=node.right.data;
+		}else {
+			str+=".";
+		}
+		System.out.println(str);
+		
+		display(node.left);
+		display(node.right);
+	}
+	private int size2(Node node) {
+		if(node==null) {
+			return 0;
+		}
+		
+		int ls = size2(node.right);
+		int rs = size2(node.left);
+		
+		return ls+rs+1;
+	}
+	public int size2() {
+		return size2(this.root);
+	}
+	public int height() {
+		return height(this.root);
+	}
+	private int height(Node node) {
+		if (node==null) {
+			return -1;
+		}
+		
+		int l =height(node.left);
+		int r =height(node.right);
+		
+		return Math.max(l, r)+1;
+	}
+	public int max() {
+		return max(this.root);
+	}
+	private int max(Node node) {
+		if (node==null) {
+			return 0;
+		}
+		
+		int l =max(node.left);
+		int r =max(node.right);
+		
+		return Math.max(l, Math.max(r, node.data));
+	}
+}
