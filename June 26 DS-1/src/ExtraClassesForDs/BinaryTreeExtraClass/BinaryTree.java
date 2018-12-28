@@ -345,6 +345,7 @@ class BinaryTree {
 		boolean isBal;
 		int height;
 	}
+	// checking if height difference is >1 or not 
 
 	public boolean IsBalanced() {
 		return IsBalanced(this.root).isBal;
@@ -644,7 +645,7 @@ class BinaryTree {
 		}
 	}
 
-	// levelorder
+	// levelorder recursion
 
 	public void levelorder2() {
 		int h = height(this.root);
@@ -747,7 +748,8 @@ class BinaryTree {
 			return false;
 		}
 
-		return ((node.left.data == a && node.right.data == b) || (node.left.data == b && node.right.data == a)
+		return ((node.left.data == a && node.right.data == b) || 
+				(node.left.data == b && node.right.data == a)
 				|| (sameparent(node.left, a, b)) || sameparent(node.right, a, b));
 
 	}

@@ -51,7 +51,7 @@ public class client {
 //		System.out.println("YO-YO-YO-YO");
 //		bt.nodebwtwolevels(2, 3);
 //		System.out.println(bt.sumofallleftleaves());
-		System.out.println(bt.loewstcommonancestor(6,5));
+//		System.out.println(bt.loewstcommonancestor(6,5));
 //		System.out.println(bt.findLevel(5));
 //		System.out.println(bt.DIST(4, 6));
 //		bt.rightViewnonrec();
@@ -97,7 +97,7 @@ public class client {
 //		System.out.println("ads");
 //		bt.display();
 //		bt.printWithNoSibling();
-//		bt.zicZacRecursive();
+		bt.zicZacRecursive();
 //		System.out.println();
 //		bt.ziczacI();
 //		System.out.println(bt.noofleafnodes());
