@@ -4,19 +4,19 @@ public class Client {
 
 	public static void main(String[] args) {
 //		Person p1 = new Person();
-				
+//				
 //		System.out.println(p1.age + " " + p1.name);
-//		
+////		
 //		p1.age = 30;
 //		p1.name = "Sumeet";
 ////		
 //		System.out.println(p1.age + " " + p1.name);
-//		
+////		
 //		Person p2 = p1; // p2 points same as p1 .
 //		
 //		p2.age = 33;
 //		p2.name = "Amit";
-		
+//		
 //		System.out.println(p2.age + " " + p2.name);
 //		System.out.println(p1.age + " " + p1.name);
 //		
@@ -29,8 +29,8 @@ public class Client {
 		p4.age = 20;
 		p4.name = "B";
 		
-//		System.out.println(p3.age + " " + p3.name);
-//		System.out.println(p4.age + " " + p4.name);
+		System.out.println(p3.age + " " + p3.name);
+		System.out.println(p4.age + " " + p4.name);
 //		Test1(p3, p4);
 //		System.out.println(p3.age + " " + p3.name);
 //		Test2(p3, p4);
@@ -40,12 +40,12 @@ public class Client {
 		int myAge = 30;
 		String myName = "C";
 ////		
-		Test3(p3, p4.age, p4.name, myAge, myName);
-		System.out.println(p3.age + " " + p3.name);
-		System.out.println(p4.age + " " + p4.name);
-		System.out.println(myAge + " " + myName);
-////		
+//		Test3(p3, p4.age, p4.name, myAge, myName);
+//		System.out.println(p3.age + " " + p3.name);
+//		System.out.println(p4.age + " " + p4.name);
+//		System.out.println(myAge + " " + myName);
 //		
+		
 		p3.introduceYourself();
 		p4.sayHello(p3.name);
 		
@@ -53,7 +53,7 @@ public class Client {
 //		Person p5 = new Person("D", 40);
 //		p5.introduceYourself();
 //		
-		Person p6 = new Person();
+//		Person p6 = new Person();
 	
 	
 	}
