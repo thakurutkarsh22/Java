@@ -1,0 +1,10 @@
+package July14;
+
+public class MinimumNumberOfJumpsToReachEnd {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -19,7 +19,7 @@
 <entry path="/usr/lib/jvm/java-8-oracle/jre/lib/endorsed"/>
 </endorsedDirs>
 </libraryInfo>
-<libraryInfo home="/usr/lib/jvm/java-8-oracle" version="1.8.0_131">
+<libraryInfo home="/usr/lib/jvm/java-8-oracle" version="1.8.0_201">
 <bootpath>
 <entry path="/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar"/>
 <entry path="/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar"/>

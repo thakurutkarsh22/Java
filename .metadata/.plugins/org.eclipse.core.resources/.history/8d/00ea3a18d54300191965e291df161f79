@@ -1,0 +1,46 @@
+package DynamicProgramingFraands;
+
+public class Minimumnumberofjumpstoreachend {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		// https://www.geeksforgeeks.org/minimum-number-jumps-reach-endset-2on-solution/
+
+		int arr[] = new int[] { 1, 1, 5, 8, 9, 2, 1, 7, 6, 8, 9 };
+
+		// calling minJumps method
+		System.out.println(minJumps(arr));
+
+	}
+
+	private static int minJumps(int[] arr) {
+
+		int maxreach = arr[0];
+		int steps = arr[0];
+		int JumpCount = 1;
+
+		for (int i = 1; i < arr.length; i++) {
+
+			if (i == arr.length - 1) {
+				return JumpCount;
+			}
+
+			steps--;
+
+			maxreach = Math.max(maxreach, i + arr[i]);
+
+			if (steps == 0) {
+				JumpCount++;
+
+				if (i >= maxreach)
+					return -1;
+
+				steps = maxreach - i;
+			}
+
+		}
+
+		return -1;
+	}
+
+}
