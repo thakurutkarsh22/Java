@@ -1,0 +1,160 @@
+package SegmentedTree;
+
+import java.util.*;
+
+public class practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		int[] nums = { -1, 1, 1, 1, 2, 1 };
+//		List<Integer> l = majorityElement(nums);
+//		for (int i : l) {
+//			System.out.println(i);
+//		}
+		int arr[] = new int[]{3,4,-1,1,0}; 
+		segregate0and1(arr,arr.length);
+		for(int i:arr) {
+			System.out.println(i);
+		}
+//		String s = "hello";
+//		System.out.println(reverseVowels(s));
+		
+
+	}
+
+	public static List<Integer> majorityElement(int[] nums) {
+		List<Integer> ans = new ArrayList<>();
+		if (nums.length == 0) {
+			return ans;
+		}
+		int k = 3;
+		if (k == 1) {
+			k = 1;
+		} else {
+			k = k - 1;
+		}
+		int[] element = new int[k];
+		int[] count = new int[k];
+
+		Arrays.fill(element, Integer.MIN_VALUE);
+		element[0] = nums[0];
+		count[0] = 1;
+
+		for (int i = 1; i < nums.length; i++) {
+			int e = 0;
+			for (e = 0; e < element.length; e++) {
+				if (element[e] == nums[i]) {
+					count[e]++;
+
+					break;
+				}
+			}
+
+			if (e == element.length) {
+
+				int l = 0;
+				for (l = 0; l < element.length; l++) {
+					if (count[l] == 0) {
+						element[l] = nums[i];
+						count[l] = 1;
+						break;
+					}
+				}
+
+				if (l == element.length - 1) {
+
+					for (int a = 0; a < element.length; a++) {
+						count[a]--;
+					}
+				}
+
+			}
+
+		}
+
+		int elementans = Integer.MIN_VALUE;
+		for (int e = 0; e < element.length; e++) {
+			int elm = element[e];
+			int count1 = 0;
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] == elm) {
+					count1++;
+				}
+			}
+			if ((count1 > nums.length / (k + 1)) && element[e] != Integer.MIN_VALUE)
+				ans.add(elm);
+
+		}
+
+		return ans;
+	}
+
+	public static String reverseVowels(String s1) {
+		int i = 0;
+		int j = s1.length() - 1;
+		StringBuilder s = new StringBuilder(s1);
+
+		while (i < j) {
+
+			while ((!isVovl(s.charAt(i))) && i < s.length()) {
+				if(i>=j) {
+					break;
+				}
+				i++;
+			}
+			while ((!isVovl(s.charAt(j))) && j >= 0) {
+				if(i>=j) {
+					break;
+				}
+				j--;
+			}
+
+			char temp = s.charAt(i);
+			s.setCharAt(i, s.charAt(j));
+			s.setCharAt(j, temp);
+			i++;
+			j--;
+			if(i>=j) {
+				break;
+			}
+
+		}
+		return s.toString();
+	}
+
+	public static boolean isVovl(char ch) {
+		if (ch == 'a' || ch == 'e' || ch == 'o' || ch == 'i' || ch == 'u')
+			return true;
+		else
+			return false;
+	}
+	
+	public static void segregate0and1(int arr[], int size)  
+    { 
+        /* Initialize left and right indexes */
+        int left = 0, right = size - 1; 
+  
+        while (left < right)  
+        { 
+            /* Increment left index while we see 0 at left */
+            while (arr[left] <= 0 && left < right) 
+               left++; 
+  
+            /* Decrement right index while we see 1 at right */
+            while (arr[right] >0  && left < right) 
+                right--; 
+  
+            /* If left is smaller than right then there is a 1 at left 
+               and a 0 at right.  Exchange arr[left] and arr[right]*/
+            if (left < right)  
+            { 
+                int temp =arr[left] ; 
+                arr[left] = arr[right] ;
+                arr[right] = temp; 
+                left++; 
+                right--; 
+            } 
+        } 
+    } 
+
+}

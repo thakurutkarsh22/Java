@@ -1,0 +1,78 @@
+package SegmentedTree;
+
+import java.util.*;
+
+public class practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] nums = {[-1,1,1,1,2,1]};
+		List<Integer> l =majorityElement(nums);
+		for(int i : l) {
+			System.out.println(i);
+		}
+		
+	}
+	   public static List<Integer> majorityElement(int[] nums) {
+		   List<Integer> ans = new ArrayList<>();
+	        if(nums.length==0){
+	            return ans;
+	        }
+	        int k = 3;
+	        if(k==1){
+	            k=1;
+	        }else {
+	            k=k-1;
+	        }
+	        int[] element = new int[k];
+	        int[] count = new int[k];
+	        
+	        Arrays.fill(element,Integer.MIN_VALUE);
+	        element[0] = nums[0];
+	        count[0] = 1;
+	        
+	        for(int i=1;i<nums.length;i++){
+	            for(int e=0 ;e <element.length ;e++){
+	                if(element[e] == nums[i]){
+	                    count[e]++;
+	                    
+	                    	break;
+	                }
+	                else if(element[e] == Integer.MIN_VALUE ){
+	                    element[e] = nums[i];
+	                    count[e] = 1;
+	                    
+	                    	break;
+	                }else if(count[e]==0){
+	                    element[e] = nums[i];
+	                    count[e] = 1;
+	                    break;
+	                }
+	                else if(e==element.length-1){
+	                    for(int a=0 ;a <element.length ;a++){
+	                        count[a]--;
+	                    }
+	                  
+	                    	break;
+	                }
+	            }
+	        }
+	        
+	        int elementans = Integer.MIN_VALUE;
+	        for(int e=0 ;e <element.length ;e++){
+	            int elm = element[e];
+	            int count1 = 0;
+	            for(int i=0 ;i<nums.length;i++){
+	                if(nums[i] ==elm){
+	                    count1++;
+	                }
+	            }
+	            if((count1>nums.length/(k+1))&&element[e]!=Integer.MIN_VALUE)
+	                ans.add(elm);
+	            
+	        }
+	       
+	       return ans;
+	    }
+
+}

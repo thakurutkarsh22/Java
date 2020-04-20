@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.HashMap;
 
 import org.omg.CORBA.INTERNAL;
 
@@ -1180,6 +1181,78 @@ public class BinaryTree {
 		ans=Math.max(ans, ans1);
 		return ans1;
 		
+	}
+	
+	// tree const from inorder and levelorder 
+	public class ctNode{
+		int data ;
+		Node parent;
+		boolean isLeft;
+		
+		ctNode(int data, Node parent, boolean isLeft){
+			this.data = data;
+			this.parent = parent;
+			this.isLeft = isLeft;
+		}
+	}
+	
+	public class TF{
+		int index;
+		boolean isChecked ;
+		TF(int index, boolean isChecked){
+			this.index = index;
+			this.isChecked = isChecked;
+		}
+	}
+	
+	public void constructTree(int [] in, int [] level) {
+		HashMap<Integer, TF> hm = new HashMap<>(100);
+		this.root = constructTree(in, level,hm,1);
+	}
+
+	private Node constructTree(int[] in, int[] level, java.util.HashMap<Integer, TF> hm,int l) {
+		// TODO Auto-generated method stub
+		//Filling HashMap
+		for(int i=0 ; i<in.length ;i++) {
+			hm.put(in[i], new TF(i,false));
+		}
+		
+		Queue<ctNode> q = new LinkedList<>();
+		q.add(new ctNode(level[0],null,false));	
+		
+		while(!q.isEmpty()) {
+			ctNode removedNode = q.remove();
+			
+			//update hash map
+			TF hmval = hm.get(removedNode.data);
+			hmval.isChecked = true;
+			hm.put(removedNode.data, hmval);
+			
+			// make new node 
+			Node newNode = new Node();
+			newNode.data = removedNode.data;
+			
+			//a addig node to parent 
+			if(removedNode.parent ==null) {
+				this.root = newNode;
+			}else {
+				boolean isLeft = removedNode.isLeft;
+				Node parent = removedNode.parent;
+				if(isLeft) {
+					parent.left = newNode;
+				}else if(!isLeft) {
+					parent.right = newNode;
+				}
+			}
+			
+			
+			
+			
+			
+		}
+		
+		
+		return null;
 	}
 
 }

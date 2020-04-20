@@ -5,7 +5,7 @@ public class Permutation {
 	public static void main(String[] args) {
 		
 		
-		ArrayList<String> a =permutation("abc");
+		ArrayList<String> a =permutation("123");
 		System.out.println(a.size() );
 	}
 

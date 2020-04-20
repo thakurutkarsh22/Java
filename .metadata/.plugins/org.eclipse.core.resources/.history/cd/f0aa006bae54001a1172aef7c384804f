@@ -1,0 +1,243 @@
+package SegmentedTree;
+
+import java.util.*;
+
+public class practice {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		int[] nums = { -1, 1, 1, 1, 2, 1 };
+//		List<Integer> l = majorityElement(nums);
+//		for (int i : l) {
+//			System.out.println(i);
+//		}
+//		int arr[] = new int[] {1,2,0 };
+//		System.out.println(firstMissingPositive(arr));
+//		for (int i : arr) {
+//			System.out.println(i);
+//		}
+//		String s = "hello";
+//		System.out.println(reverseVowels(s));
+		int[][] arr = {{1,0,0,0,1},{0,0,0,0,0},{0,0,1,0,0}};
+System.out.println(minTotalDistance(arr));
+
+	}
+
+	public static List<Integer> majorityElement(int[] nums) {
+		List<Integer> ans = new ArrayList<>();
+		if (nums.length == 0) {
+			return ans;
+		}
+		int k = 3;
+		if (k == 1) {
+			k = 1;
+		} else {
+			k = k - 1;
+		}
+		int[] element = new int[k];
+		int[] count = new int[k];
+
+		Arrays.fill(element, Integer.MIN_VALUE);
+		element[0] = nums[0];
+		count[0] = 1;
+
+		for (int i = 1; i < nums.length; i++) {
+			int e = 0;
+			for (e = 0; e < element.length; e++) {
+				if (element[e] == nums[i]) {
+					count[e]++;
+
+					break;
+				}
+			}
+
+			if (e == element.length) {
+
+				int l = 0;
+				for (l = 0; l < element.length; l++) {
+					if (count[l] == 0) {
+						element[l] = nums[i];
+						count[l] = 1;
+						break;
+					}
+				}
+
+				if (l == element.length - 1) {
+
+					for (int a = 0; a < element.length; a++) {
+						count[a]--;
+					}
+				}
+
+			}
+
+		}
+
+		int elementans = Integer.MIN_VALUE;
+		for (int e = 0; e < element.length; e++) {
+			int elm = element[e];
+			int count1 = 0;
+			for (int i = 0; i < nums.length; i++) {
+				if (nums[i] == elm) {
+					count1++;
+				}
+			}
+			if ((count1 > nums.length / (k + 1)) && element[e] != Integer.MIN_VALUE)
+				ans.add(elm);
+
+		}
+
+		return ans;
+	}
+
+	public static String reverseVowels(String s1) {
+		int i = 0;
+		int j = s1.length() - 1;
+		StringBuilder s = new StringBuilder(s1);
+
+		while (i < j) {
+
+			while ((!isVovl(s.charAt(i))) && i < s.length()) {
+				if (i >= j) {
+					break;
+				}
+				i++;
+			}
+			while ((!isVovl(s.charAt(j))) && j >= 0) {
+				if (i >= j) {
+					break;
+				}
+				j--;
+			}
+
+			char temp = s.charAt(i);
+			s.setCharAt(i, s.charAt(j));
+			s.setCharAt(j, temp);
+			i++;
+			j--;
+			if (i >= j) {
+				break;
+			}
+
+		}
+		return s.toString();
+	}
+
+	public static boolean isVovl(char ch) {
+		if (ch == 'a' || ch == 'e' || ch == 'o' || ch == 'i' || ch == 'u')
+			return true;
+		else
+			return false;
+	}
+	 public static int firstMissingPositive(int[] nums) {
+	        segregate0and1(nums,nums.length);
+	        // -1 4 3 1
+	        
+	        int i=0;
+	        int j= nums.length-1;
+	        while(i<nums.length){
+	            if(nums[i]<=0||nums[i] == i+1 || nums[i]>nums.length){
+	                i++;
+	                continue;
+	            }
+	            else if(nums[nums[i]-1]!=nums[i]) {
+	            //swap 
+	            int temp = nums[i]; //4 
+	            nums[i] = nums[temp-1];
+	            nums[temp-1] = temp;
+	            }
+	            else 
+	              i++;
+	        }
+	        
+	        int k =0;
+	        for( k=0 ; k<nums.length ;k++) {
+	        	if(nums[k]!=k+1) {
+	        		break;
+	        	}
+	        }
+	        return k+1;
+	    }
+
+	public static void segregate0and1(int arr[], int size) {
+
+		int left = 0, right = size - 1;
+
+		while (left < right) {
+
+			while (arr[left] <= 0 && left < right)
+				left++;
+
+			while (arr[right] > 0 && left < right)
+				right--;
+
+			if (left < right) {
+				int temp = arr[left];
+				arr[left] = arr[right];
+				arr[right] = temp;
+				left++;
+				right--;
+			}
+		}
+	}
+	
+	 public static int minTotalDistance(int[][] grid) {
+	        // Write your code here
+	        // 1 0 0 0 1
+	        // 0 0 0 0 0
+	        // 0 0 1 0 0
+	        
+	        // 0,2,4  x axis 
+	        // 0 2 4
+	        // 0 0   0, 0 
+	        // 0,4
+	        // 2,2 
+	        ArrayList<pair> al = new ArrayList<pair>();
+	        for(int i=0 ;i<grid.length;i++){
+	            for(int j=0;j<grid[0].length;j++){
+	                if(grid[i][j]==1)
+	                    al.add(new pair(i,j));
+	            }
+	        }
+	        
+	        int[] xaxis = new int[al.size()];
+	        int[] yaxis = new int[al.size()];
+	        
+	        for(int i=0 ;i<al.size();i++){
+	            pair p = al.get(i);
+	            xaxis[i]=p.x;
+	            yaxis[i] = p.y;
+	        }
+	        
+	        Arrays.sort(xaxis);
+	        Arrays.sort(yaxis);
+	        
+	        int xaxislen = xaxis.length;
+	        int yaxislen = yaxis.length;
+	        
+	        int xmedian = xaxis[xaxislen/2];
+	        int ymedian = yaxis[yaxislen/2];
+	        
+	        int sum =0;
+	         for(int i=0 ;i<al.size();i++){
+	              pair p = al.get(i);
+	              int a = Math.abs(p.y-ymedian);
+	              int b = Math.abs(p.x - xmedian);
+	              sum+=a+b;
+	         }
+	         return sum;
+	        
+	        
+	    }
+	    
+	    public static class pair{
+	        int x;
+	        int y;
+	        pair(int x, int y)
+	        {
+	            this.x = x;
+	            this.y =y;
+	        }
+	    }
+
+}
