@@ -4,7 +4,7 @@ public class PrintKPCanotherMethod {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		System.out.println(PrintKPC("128",""));
+		System.out.println(PrintKPC("23",""));
 	}
 
 	
